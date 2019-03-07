@@ -1,0 +1,14 @@
+{
+  "name": "gutenberg",
+  "version": "0.0.1",
+  "description": "A simple, template-base, convention-over-configuration service for pdf generation",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
