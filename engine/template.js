@@ -4,25 +4,27 @@ const fs = require('fs');
 const getFile = (path) =>
   fs.readFileSync(path, 'utf8');
 
-const getTemplate = (templateName) =>
-  getFile(`templates/${templateName}/main.hbs`);
+class TemplateEngine {
+  constructor(templateName) {
+    this.templateName = templateName;
+    this.hbs = hbs.create();
+    this.template = getFile(`templates/${this.templateName}/main.hbs`);
+    this.getPartials();
+  }
 
-const getPartials = (templateName) => {
-  const baseDir = `templates/${templateName}/partials`;
-  fs.readdir(baseDir, (err, items) => {
-    items.map(x => console.log(getFile(`${baseDir}/${x}`)))
-  });
-};
+  getPartials() {
+    const baseDir = `templates/${this.templateName}/partials`;
+    const partialNames = fs.readdirSync(baseDir);
+    partialNames.map(x => this.hbs.registerPartial(x, getFile(`${baseDir}/${x}`)));
+  }
 
-const compileTemplate = (templateName) => {
-  const partials = getPartials(templateName);
-  return hbs.compile(getTemplate(templateName));
-};
+  render(context) {
+    return this.hbs.compile(this.template)(context);
+  }
 
-const render = (templateName, context) =>
-  compileTemplate(templateName)(context);
+  renderStub() {
+    return this.render(require(`../templates/${this.templateName}/data.json`));
+  }
+}
 
-const renderStub = (templateName) =>
-  render(templateName, require(`../templates/${templateName}/data.json`))
-
-module.exports = { render, renderStub };
+module.exports = { TemplateEngine };

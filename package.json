@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
+    "express-pdf": "^1.2.2",
     "handlebars": "^4.1.0"
   }
 }
