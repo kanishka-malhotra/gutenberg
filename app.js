@@ -9,13 +9,14 @@ const port = 3000;
 app.use(pdf);
 app.use(express.json());
 
-app.use('/api/v1/templates/:template.:extension', ({ params: { template, extension }}, res) => {
+app.get('/api/v1/templates/:template.:extension', ({ params: { template, extension }}, res) => {
   const tpl = new TemplateEngine(template);
   responderEngine(res, tpl.renderStub(), extension);
 });
 
 app.post('/api/v1/templates/:template.:extension', ({ params: { template, extension }, body }, res) => {
   const tpl = new TemplateEngine(template);
+  console.log(body)
   responderEngine(res, tpl.render(body), extension);
 });
 
