@@ -1,0 +1,14 @@
+<tr class="heading">
+  <td>Item</td>
+  <td>Price</td>
+</tr>
+{{#each items}}
+  <tr class="item">
+    <td>{{this.key}}</td>
+    <td>{{this.cost}}</td>
+  </tr>
+{{/each}}
+<tr class="total">
+  <td></td>
+  <td>Total: $385.00</td>
+</tr>

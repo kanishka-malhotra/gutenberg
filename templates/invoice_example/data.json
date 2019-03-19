@@ -1,0 +1,27 @@
+{
+  "title": "Invoice",
+  "invoiceNo": 123,
+  "dateCreated": "1 January 2019",
+  "dateDue": "1 February 2019",
+  "senderAddress": [
+    "Sparksuite, Inc.",
+    "12345 Sunny Road",
+    "Sunnyville, CA 12345"
+  ],
+  "recipientAddress": [
+    "Acme Corp.",
+    "John Doe",
+    "john@example.com"
+  ],
+  "items": [
+    {
+      "key": "Apples",
+      "cost": "£ 3.000"
+    },
+    {
+      "key": "Oranges",
+      "cost": "£ 4.000"
+    }
+  ],
+  "total": "£ 7.000"
+}
