@@ -16,12 +16,12 @@
   "items": [
     {
       "key": "Apples",
-      "cost": "£ 3.000"
+      "cost": "£3,000"
     },
     {
       "key": "Oranges",
-      "cost": "£ 4.000"
+      "cost": "£4,000"
     }
   ],
-  "total": "£ 7.000"
+  "total": "£7,000"
 }

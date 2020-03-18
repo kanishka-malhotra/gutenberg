@@ -20,4 +20,4 @@ app.post('/api/v1/templates/:template.:extension', ({ params: { template, extens
   responderEngine(res, tpl.render(body), extension);
 });
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(port, () => console.log(`PDF generator app listening on port ${port}!`));

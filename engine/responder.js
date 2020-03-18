@@ -1,3 +1,4 @@
+const { pdfFromHtmlOptions } = require('../config/options');
 
 const responderEngine = (res, html, extension) => {
   switch (extension) {
@@ -5,7 +6,11 @@ const responderEngine = (res, html, extension) => {
       res.send(html);
       break;
     case 'pdf':
-      res.pdfFromHTML({ fileName: 'example.pdf',  htmlContent: html});
+      res.pdfFromHTML({
+        ...pdfFromHtmlOptions,
+        fileName: 'example.pdf',
+        htmlContent: html,
+      });
       break;
   }
 };
